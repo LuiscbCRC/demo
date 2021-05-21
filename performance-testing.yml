@@ -12,6 +12,7 @@ config:
 scenarios:
   - name: 'Test the complete flow'
     flow:
+      - think: 60
       - get:
           url: '/'
           expect:
