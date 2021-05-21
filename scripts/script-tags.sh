@@ -1,3 +1,5 @@
 #!/bin/bash
-git tag -a v3.0.0 -m "Release"
-git push origin v3.0.0 
+version="$1"
+message="$2"
+git tag -a v"$version" -m "$message"
+git push origin v"$version" 
