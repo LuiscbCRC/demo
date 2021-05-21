@@ -1,12 +1,23 @@
-const ronin     = require( 'ronin-server' )
-const mocks     = require( 'ronin-mocks' )
+const express = require('express'); // Importing express module
 
-const server = ronin.server()
+const app = express(); // Creating an express object
 
-//Para debugging
-server.use( '/foo', (req, res) => {return res.json({ "foo": "bar" })})
+const port = process.env.PORT || 8000;  // Setting an port for this application
 
-//Ruta normal
-server.use( '/', mocks.server( server.Router(), false, true ) )
+app.get('/foo', function (req, res) {
+    res.status(200).send("<p>Odio las pruebas operacionales</p>");
+  })
 
-server.start()
+app.get('/', function (req, res) {
+    res.status(200).json({"Status": "ok"});
+})
+
+// Starting server using listen function
+app.listen(port, function (err) {
+   if(err){
+       console.log("Error while starting server");
+   }
+   else{
+       console.log("Server has been started at "+port);
+   }
+})

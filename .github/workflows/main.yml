@@ -27,7 +27,6 @@ jobs:
       - 
         uses: docker/login-action@v1 
         with:
-        #Donde diablos estan los secrets
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       -
@@ -39,7 +38,6 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          #Hay que cambiar el tag
           tags: luiscb/demo:latest 
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
