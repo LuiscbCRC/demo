@@ -1,9 +1,10 @@
 config:
-  target: 'https://demo-pruebas-operacionales.herokuapp.com/'
+  target: 'http://localhost:8000'
   plugins:
     expect: {}
+    fuzzer: {}
   phases:
-    - duration: 600
+    - duration: 40
       arrivalRate: 9
     
   ensure:
@@ -20,3 +21,10 @@ scenarios:
           url: '/index'
           expect:
             - statusCode: 200
+      
+      - post:
+          url: "/api"
+          json:
+            username: "{{ naughtyString }}"
+            password: "secret"
+      - log: "***** naughtyString = {{ naughtyString }}"
