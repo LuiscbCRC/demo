@@ -6,8 +6,8 @@ config:
     - duration: 600
       arrivalRate: 9
     
-    ensure:
-      maxErrorRate: 2
+  ensure:
+    maxErrorRate: 2
 scenarios:
   - name: 'Test the complete flow'
     flow:
