@@ -1,0 +1,22 @@
+config:
+  target: 'https://demo-pruebas-operacionales.herokuapp.com/'
+  plugins:
+    expect: {}
+  phases:
+    - duration: 600
+      arrivalRate: 9
+    
+    ensure:
+      maxErrorRate: 2
+scenarios:
+  - name: 'Test the complete flow'
+    flow:
+      - get:
+          url: '/'
+          expect:
+            - statusCode: 200
+
+      - get:
+          url: '/index'
+          expect:
+            - statusCode: 200

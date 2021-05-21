@@ -6,12 +6,14 @@
   "scripts": {
     "test": "mocha ./**/*.js",
     "start": "nodemon --inspect=0.0.0.0:9229 server.js",
-    "debug": "nodemon --inspect=0.0.0.0:9229 server.js"
+    "debug": "nodemon --inspect=0.0.0.0:9229 server.js",
+    "performance": "artillery run performance-testing.yml"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "artillery": "^1.7.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
     "ronin-mocks": "^0.1.6",

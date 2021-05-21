@@ -16,3 +16,8 @@ jobs:
           heroku_app_name: "demo-pruebas-operacionales" #Must be unique in Heroku
           heroku_email: "luiscb04@gmail.com"
           usedocker: true
+
+      - name: Run load tests
+        run: HEROKU_URL=$HEROKU_URL npm run performance
+        env:
+          HEROKU_URL: ${{secrets.HEROKU_URL}}

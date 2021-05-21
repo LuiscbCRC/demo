@@ -2,10 +2,12 @@ const express = require('express'); // Importing express module
 
 const app = express(); // Creating an express object
 
+const path = require('path');
+
 const port = process.env.PORT || 8000;  // Setting an port for this application
 
-app.get('/foo', function (req, res) {
-    res.status(200).send("<p>Odio las pruebas operacionales</p>");
+app.get('/index', function (req, res) {
+    res.status(200).sendFile(path.join(__dirname+'/index.html'));
   })
 
 app.get('/', function (req, res) {
