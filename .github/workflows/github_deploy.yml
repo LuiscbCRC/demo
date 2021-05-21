@@ -9,11 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v1
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          node-version: '14'
+          check-latest: true
+      - run: npm install
+      
+      - uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "demo-pruebas-operacionales" #Must be unique in Heroku
+          heroku_app_name: "demo-pruebas-operacionales" 
           heroku_email: "luiscb04@gmail.com"
           usedocker: true
 

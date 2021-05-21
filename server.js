@@ -10,6 +10,10 @@ app.get('/index', function (req, res) {
     res.status(200).sendFile(path.join(__dirname+'/index.html'));
   })
 
+app.get('/style.css', function(req, res) {
+    res.sendFile(__dirname + "/" + "style.css");
+});
+
 app.get('/', function (req, res) {
     res.status(200).json({"Status": "ok"});
 })
