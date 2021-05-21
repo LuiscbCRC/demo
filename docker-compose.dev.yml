@@ -4,6 +4,7 @@ services:
  notes:
   build:
    context: .
+   target: test
   ports:
    - 8000:8000
    - 9229:9229
