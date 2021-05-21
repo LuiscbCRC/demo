@@ -43,7 +43,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
       -
         name: Running tests in container
-        run: docker-compose -f docker-compose.yml up --build
+        run: docker build -t node-docker-test --target test .
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
