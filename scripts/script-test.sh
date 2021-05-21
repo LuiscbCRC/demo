@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose -f docker-compose.dev.yml run notes npm run test
+docker-compose -f docker-compose.yml run notes npm run test
