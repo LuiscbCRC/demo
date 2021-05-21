@@ -42,7 +42,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       -
-      - 
         name: Running tests in container
         run: docker-compose -f docker-compose.yml up --build
       -
